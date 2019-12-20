@@ -4,9 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.android_mvvm_skeleton.posts.data.dao.PostDao
+import com.example.android_mvvm_skeleton.posts.data.entities.Post
 
-//@Database(entities = [], version = 1, exportSchema = false)
+@Database(entities = [Post::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
+
+    abstract fun postDao(): PostDao
 
     companion object {
         // For Singleton instantiation
@@ -19,12 +23,10 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
-        // Create and pre-populate the database. See this article for more details:
-        // https://medium.com/google-developers/7-pro-tips-for-room-fbadea4bfbd1#4785
         private fun buildDatabase(context: Context): AppDatabase {
             return Room.databaseBuilder(context, AppDatabase::class.java, "my-app-db")
-                    .fallbackToDestructiveMigration()
-                    .build()
+                .fallbackToDestructiveMigration()
+                .build()
         }
     }
 }
