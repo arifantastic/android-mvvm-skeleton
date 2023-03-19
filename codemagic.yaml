@@ -8,7 +8,7 @@ workflows:
         - arifz.xyz
     scripts:
       - name: Build Android APK
-        script: ./gradlew assembleDebug
+        script: ./gradlew assembleRelease
     artifacts:
       - build/**/outputs/apk/**/*.apk
     cache:
