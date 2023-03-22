@@ -1,4 +1,4 @@
-package xyz.arifz.dfatest.presentation.view
+package xyz.arifz.dfatest.presentation.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
